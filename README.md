@@ -3,10 +3,10 @@
 # Installation
 
 * Various Utils
-	sudo apt-get install php5-curl php-pear php5-dev build-essential git php5-xsl
+		sudo apt-get install php5-curl php-pear php5-dev build-essential git php5-xsl
 
 * xDebug for code coverage
-	sudo pecl install xdebug
+		sudo pecl install xdebug
 
 * Prepare pear
 
@@ -15,7 +15,7 @@
 		sudo pear config-set preferred_state beta
 
 * Install PHPUnit
-	sudo pear install --alldeps pear.phpunit.de/PHPUnit
+		sudo pear install --alldeps pear.phpunit.de/PHPUnit
 
 * [Install Jenkins](http://jenkins-ci.org/ "Jenkins")
 
