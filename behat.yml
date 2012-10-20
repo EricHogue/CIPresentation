@@ -1,0 +1,6 @@
+default:
+    formatter:
+        name:           'progress'
+    paths:
+        features: './tests/integrationTests/'
+        bootstrap: '%behat.paths.features%/bootstrap'
