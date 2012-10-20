@@ -19,7 +19,7 @@
 * Install PHPUnit
 		sudo pear install --alldeps pear.phpunit.de/PHPUnit
 
-* Install ant
+* Install Ant
 		sudo apt-get install ant
 
 * [Install Jenkins](http://jenkins-ci.org/ "Jenkins")
@@ -28,3 +28,5 @@
 * Install Jenkins plugins
 	* Git Plugin
 	* ChuckNorris Plugin
+	* xUnit Plugin
+	* Clover PHP Plugin

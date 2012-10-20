@@ -1,0 +1,28 @@
+<phpunit bootstrap="../bootstrap.php" 
+	colors="true"
+	strict="true"
+	verbose="true"
+	backupGlobals="false"
+	backupStaticAttributes="false"
+>
+	<testsuites>
+		<testsuite name="UnitTests">
+			<directory suffix="Test.php">../tests/unitTests/</directory>
+		</testsuite>
+	</testsuites>
+
+	<filter>
+		<whitelist addUncoveredFilesFromWhitelist="true">
+			<directory suffix=".php">../src</directory>
+		</whitelist>
+	</filter>
+
+	<logging>
+		<log type="coverage-html" target="../buildReports/coverage" 
+			title="True North PHP Code Coverage"
+			charset="UTF-8" yui="true" highlight="true"
+			lowUpperBound="35" highLowerBound="70"/>
+		<log type="coverage-clover" target="../buildReports/clover.xml"/>
+		<log type="junit" target="../buildReports/junit.xml" logIncompleteSkipped="false"/>
+	</logging>
+</phpunit>
