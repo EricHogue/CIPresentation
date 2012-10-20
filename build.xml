@@ -1,0 +1,20 @@
+<project name="True North PHP CI Presentation" default="build">
+
+	<property name="srcdir" value="${basedir}/src" />
+	<property name="testsdir" value="${basedir}/tests" />
+	<property name="builddir" value="${basedir}/buildReports" />
+
+	<target name="build" depends="prepare, unitTests" />
+
+	<target name="prepare" depends="clean">
+		<mkdir dir="${builddir}" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${builddir}" />
+	</target>
+
+	<target name="unitTests" depends="prepare">
+		<exec executable="phpunit" failonerror="true" />
+	</target>
+</project>

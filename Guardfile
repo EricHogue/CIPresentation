@@ -5,3 +5,9 @@ guard 'phpunit', :cli => '--colors', :tests_path => 'tests',
   watch(%r{^tests/.+Test\.php$})
   watch(%r{^src/(.+)\.php$}) { |m| "tests/unitTests/#{m[1]}Test.php" }
 end
+
+guard :shell do
+	watch /build.xml/ do
+		`ant`
+	end
+end
