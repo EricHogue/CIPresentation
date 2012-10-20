@@ -10,9 +10,9 @@
 
 * Prepare pear
 
-	sudo pear upgrade PEAR
-	sudo pear config-set auto_discover 1
-	sudo pear config-set preferred_state beta
+		sudo pear upgrade PEAR
+		sudo pear config-set auto_discover 1
+		sudo pear config-set preferred_state beta
 
 * Install PHPUnit
 	sudo pear install --alldeps pear.phpunit.de/PHPUnit
