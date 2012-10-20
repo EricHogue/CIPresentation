@@ -27,3 +27,4 @@
 
 * Install Jenkins plugins
 	* Git Plugin
+	* ChuckNorris Plugin

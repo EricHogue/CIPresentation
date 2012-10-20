@@ -5,7 +5,6 @@
 	<property name="builddir" value="${basedir}/buildReports" />
 
 	<target name="build" depends="prepare, unitTests" />
-
 	<target name="prepare" depends="clean">
 		<mkdir dir="${builddir}" />
 	</target>
