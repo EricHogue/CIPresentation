@@ -10,6 +10,7 @@ class Coordinate {
 	public function __construct($row, $column) {
 		$this->row = $row;
 		$this->column = $column;
+		$a = 3;
 	}
 
 	public function getKey() {

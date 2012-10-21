@@ -5,7 +5,8 @@
 	<property name="builddir" value="${basedir}/buildReports" />
 	<property name="configdir" value="${basedir}/buildConfigs" />
 
-	<target name="build" depends="prepare, unitTests, phpcs" />
+	<target name="build" depends="prepare, unitTests, phpcs, phpmd" />
+
 	<target name="prepare" depends="clean">
 		<mkdir dir="${builddir}" />
 	</target>
@@ -27,6 +28,16 @@
 			<arg value="--report-file=${builddir}/checkstyle.xml" />
 
 			<arg value="${srcdir}" />
+		</exec>
+	</target>
+
+	<target name="phpmd" depends="prepare">
+		<exec executable="phpmd">
+			<arg path="${srcdir}" />
+			<arg value="xml" />
+			<arg value="${configdir}/phpmd.xml" />
+			<arg value="--reportfile" />
+			<arg value="${builddir}/pmd.xml" />
 		</exec>
 	</target>
 </project>
