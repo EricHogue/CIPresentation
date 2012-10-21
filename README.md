@@ -33,3 +33,4 @@
 	* Git Plugin
 	* xUnit Plugin
 	* Clover PHP Plugin
+	* Checkstyle Plugin
