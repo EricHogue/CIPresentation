@@ -28,7 +28,7 @@
 * [Install Jenkins](http://jenkins-ci.org/ "Jenkins")
 
 * Install PHP Tools
-		sudo pear install --alldeps pear.phpunit.de/PHPUnit PHP_CodeSniffer phpmd/PHP_PMD
+		sudo pear install --alldeps pear.phpunit.de/PHPUnit PHP_CodeSniffer phpmd/PHP_PMD pdepend/PHP_Depend-beta
 
 
 
@@ -37,3 +37,8 @@
 	* xUnit Plugin
 	* Clover PHP Plugin
 	* Checkstyle Plugin
+	* PMD Plugin
+
+
+
+Add Jenkins config to GitHub

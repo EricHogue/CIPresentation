@@ -5,10 +5,11 @@
 	<property name="builddir" value="${basedir}/buildReports" />
 	<property name="configdir" value="${basedir}/buildConfigs" />
 
-	<target name="build" depends="prepare, unitTests, phpcs, phpmd" />
+	<target name="build" depends="prepare, unitTests, phpcs, phpmd, pdepend" />
 
 	<target name="prepare" depends="clean">
 		<mkdir dir="${builddir}" />
+		<mkdir dir="${builddir}/pdepend" />
 	</target>
 
 	<target name="clean">
@@ -38,6 +39,15 @@
 			<arg value="${configdir}/phpmd.xml" />
 			<arg value="--reportfile" />
 			<arg value="${builddir}/pmd.xml" />
+		</exec>
+	</target>
+
+	<target name="pdepend" depends="prepare">
+		<exec executable="pdepend">
+			<arg value="--jdepend-xml=${builddir}/pdepend/jdepend.xml" />
+			<arg value="--jdepend-chart=${builddir}/pdepend/dependecies.svg" />
+			<arg value="--overview-pyramid=${builddir}/pdepend/overview-pyramid.svg" />
+			<arg value="${srcdir}" />
 		</exec>
 	</target>
 </project>
