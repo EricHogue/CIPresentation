@@ -38,6 +38,7 @@
 	* Clover PHP Plugin
 	* Checkstyle Plugin
 	* PMD Plugin
+	* JDepend Plugin
 
 
 
