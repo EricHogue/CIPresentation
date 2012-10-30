@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>&lt;img src=&quot;ws/buildReports/pdepend/dependecies.svg&quot; width=&quot;500px&quot; /&gt;&#xd;
+&lt;img src=&quot;ws/buildReports/pdepend/overview-pyramid.svg&quot; width=&quot;500px&quot; /&gt;</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@1.1.25">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <name></name>
+        <refspec></refspec>
+        <url>git@github.com:EricHogue/CIPresentation.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>**</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <disableSubmodules>false</disableSubmodules>
+    <recursiveSubmodules>false</recursiveSubmodules>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <authorOrCommitter>false</authorOrCommitter>
+    <clean>false</clean>
+    <wipeOutWorkspace>false</wipeOutWorkspace>
+    <pruneBranches>false</pruneBranches>
+    <remotePoll>false</remotePoll>
+    <ignoreNotifyCommit>false</ignoreNotifyCommit>
+    <useShallowClone>false</useShallowClone>
+    <buildChooser class="hudson.plugins.git.util.DefaultBuildChooser"/>
+    <gitTool>Default</gitTool>
+    <submoduleCfg class="list"/>
+    <relativeTargetDir></relativeTargetDir>
+    <reference></reference>
+    <excludedRegions></excludedRegions>
+    <excludedUsers></excludedUsers>
+    <gitConfigName></gitConfigName>
+    <gitConfigEmail></gitConfigEmail>
+    <skipTag>false</skipTag>
+    <includedRegions></includedRegions>
+    <scmName></scmName>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers class="vector">
+    <hudson.triggers.SCMTrigger>
+      <spec>* * * * *</spec>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Ant plugin="ant@1.1">
+      <targets>build</targets>
+    </hudson.tasks.Ant>
+  </builders>
+  <publishers>
+    <hudson.plugins.checkstyle.CheckStylePublisher plugin="checkstyle@3.32">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <thresholdLimit>low</thresholdLimit>
+      <pluginName>[CHECKSTYLE] </pluginName>
+      <defaultEncoding></defaultEncoding>
+      <canRunOnFailed>false</canRunOnFailed>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.48">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+      </thresholds>
+      <shouldDetectModules>false</shouldDetectModules>
+      <dontComputeNew>true</dontComputeNew>
+      <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
+      <pattern>buildReports/checkstyle.xml</pattern>
+    </hudson.plugins.checkstyle.CheckStylePublisher>
+    <hudson.plugins.pmd.PmdPublisher plugin="pmd@3.33">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <thresholdLimit>low</thresholdLimit>
+      <pluginName>[PMD] </pluginName>
+      <defaultEncoding></defaultEncoding>
+      <canRunOnFailed>false</canRunOnFailed>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.48">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+      </thresholds>
+      <shouldDetectModules>false</shouldDetectModules>
+      <dontComputeNew>true</dontComputeNew>
+      <doNotResolveRelativePaths>true</doNotResolveRelativePaths>
+      <pattern>buildReports/pmd.xml</pattern>
+    </hudson.plugins.pmd.PmdPublisher>
+    <hudson.plugins.chucknorris.CordellWalkerRecorder plugin="chucknorris@0.4">
+      <factGenerator/>
+    </hudson.plugins.chucknorris.CordellWalkerRecorder>
+    <org.jenkinsci.plugins.cloverphp.CloverPublisher plugin="cloverphp@0.3.2">
+      <publishHtmlReport>true</publishHtmlReport>
+      <reportDir>buildReports/coverage/</reportDir>
+      <xmlLocation>buildReports/clover.xml</xmlLocation>
+      <disableArchiving>false</disableArchiving>
+      <healthyTarget>
+        <methodCoverage>70</methodCoverage>
+        <statementCoverage>80</statementCoverage>
+      </healthyTarget>
+      <unhealthyTarget/>
+      <failingTarget/>
+    </org.jenkinsci.plugins.cloverphp.CloverPublisher>
+    <xunit plugin="xunit@1.48">
+      <types>
+        <PHPUnitJunitHudsonTestType>
+          <pattern>buildReports/junit.xml</pattern>
+          <faildedIfNotNew>true</faildedIfNotNew>
+          <deleteOutputFiles>true</deleteOutputFiles>
+          <stopProcessingIfError>true</stopProcessingIfError>
+        </PHPUnitJunitHudsonTestType>
+      </types>
+      <thresholds>
+        <org.jenkinsci.plugins.xunit.threshold.FailedThreshold>
+          <unstableThreshold></unstableThreshold>
+          <unstableNewThreshold></unstableNewThreshold>
+          <failureThreshold></failureThreshold>
+          <failureNewThreshold></failureNewThreshold>
+        </org.jenkinsci.plugins.xunit.threshold.FailedThreshold>
+        <org.jenkinsci.plugins.xunit.threshold.SkippedThreshold>
+          <unstableThreshold></unstableThreshold>
+          <unstableNewThreshold></unstableNewThreshold>
+          <failureThreshold></failureThreshold>
+          <failureNewThreshold></failureNewThreshold>
+        </org.jenkinsci.plugins.xunit.threshold.SkippedThreshold>
+      </thresholds>
+      <thresholdMode>1</thresholdMode>
+    </xunit>
+    <hudson.plugins.jdepend.JDependRecorder plugin="jdepend@1.2.3">
+      <configuredJDependFile>buildReports/pdepend/jdepend.xml</configuredJDependFile>
+    </hudson.plugins.jdepend.JDependRecorder>
+  </publishers>
+  <buildWrappers/>
+</project>
