@@ -42,4 +42,4 @@
 
 
 
-* The file config.xml contains the Jenkins project. To use it, create with the name you want to give to the project in '/var/lib/jenkins/jobs/'. Then copy the file in the folder and restart Jenkins.
+* The file config.xml contains the Jenkins project. To use it, create a folder with the name you want to give to the project in '/var/lib/jenkins/jobs/'. Then copy the file in the folder and restart Jenkins.
