@@ -9,7 +9,7 @@ class Grid {
 	}
 
 	public function addCell(Coordinate $coordinate, $value) {
-		$this->cells[$coordinate->getKey()] = $value;
+		//$this->cells[$coordinate->getKey()] = $value;
 	}
 
 	public function getValueAtCoordinate(Coordinate $coordinate) {
