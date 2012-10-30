@@ -1,3 +1,13 @@
+Continuous Integration Presentation
+===================================
+
+This project contains the information needed for my Continuous Integration presentation. 
+
+* The README.md file contains the installation instructions
+* The build.xml file is the ant build script
+* The buildConfigs contains the configuration for PHP_CS, PHPMD and PHPUnit.
+* config.xml is the Jenkins project
+
 
 
 # Installation
@@ -43,3 +53,5 @@
 
 
 * The file config.xml contains the Jenkins project. To use it, create a folder with the name you want to give to the project in '/var/lib/jenkins/jobs/'. Then copy the file in the folder and restart Jenkins.
+
+
