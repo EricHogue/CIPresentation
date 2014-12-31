@@ -22,7 +22,7 @@ class Coordinate {
 	}
 
 	public function getRow() {
-		return 3;//$this->row;
+		return $this->row;
 	}
 
 	public function getColumn() {
