@@ -29,7 +29,7 @@
     </target>
 
     <target name="composer" description="Run composer install">
-        <composer command="install" composer="composer">
+        <composer command="install" composer="/usr/local/bin/composer">
             <arg value="--optimize-autoloader" />
         </composer>
 
