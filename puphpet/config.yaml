@@ -161,6 +161,7 @@ php:
             - cli
             - intl
             - mcrypt
+            - xsl
         pear: {  }
         pecl:
             - pecl_http
