@@ -15,5 +15,5 @@ echo "Install Jenkins plugins"
 curl  -L http://updates.jenkins-ci.org/update-center.json | sed '1d;$d' | curl -X POST -H 'Accept: application/json' -d @- http://localhost:8080/updateCenter/byId/default/postBack
 
 wget http://localhost:8080/jnlpJars/jenkins-cli.jar
-java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin Git GreenBalls ChuckNorris
+java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin Git Phing GreenBalls ChuckNorris
 java -jar jenkins-cli.jar -s http://localhost:8080 safe-restart
