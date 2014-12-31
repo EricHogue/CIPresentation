@@ -2,6 +2,9 @@
 
 namespace Sudoku;
 
+/**
+ * Coordinate of a position in the grid
+ */
 class Coordinate {
 	/** @var int */
 	private $row;

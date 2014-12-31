@@ -1,0 +1,11 @@
+default:
+    formatter:
+        name:           'progress'
+    paths:
+        features: './tests/integrationTests/'
+        bootstrap: '%behat.paths.features%/bootstrap'
+ci:
+    formatter:
+        name:                   junit,html
+        parameters:
+            output_path:          junit,behat_report.html

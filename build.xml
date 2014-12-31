@@ -1,0 +1,88 @@
+<project default="build">
+
+    <property name="builddir" value="./build" override="true" />
+    <property name="coveragedir" value="${builddir}/coverage" override="true" />
+
+    <fileset id="allCode" dir="${project.basedir}">
+        <include name="src/**" />
+        <include name="tests/**" />
+    </fileset>
+
+    <target name="build" depends="prepare,phpunit,behat,phpcs,pdepend,phpmd,phpcpd,phploc,phpdox" description="Build the project">
+    </target>
+
+    <target name="prepare" depends="composer,cleanup">
+        <echo msg="Making directory ${builddir}" />
+        <mkdir dir="${builddir}" />
+        <mkdir dir="${builddir}/phpunit/" />
+        <mkdir dir="${builddir}/behat/" />
+        <mkdir dir="${builddir}/phpcs/" />
+        <mkdir dir="${builddir}/pdepend/" />
+        <mkdir dir="${builddir}/phpmd/" />
+        <mkdir dir="${builddir}/phpcpd/" />
+        <mkdir dir="${builddir}/phploc/" />
+    </target>
+
+    <target name="cleanup">
+        <echo msg="Removing directory ${builddir}" />
+        <delete dir="${builddir}" />
+    </target>
+
+    <target name="composer" description="Run composer install">
+        <composer command="install">
+            <arg value="--optimize-autoloader" />
+        </composer>
+
+        <!-- Load autoload.php so apps installed with composer works -->
+        <php expression="include('vendor/autoload.php')"/>
+    </target>
+
+    <target name="phpunit" description="Run the unit tests" depends="prepare">
+        <exec command="./vendor/bin/phpunit -c phpunitCI.xml" checkreturn="true" />
+    </target>
+
+    <target name="behat" description="Run Behat tests" depends="prepare">
+        <exec command="./vendor/bin/behat --format=junit,html,pretty --out ${builddir}/behat/,${builddir}/behat/behat.html," 
+            checkreturn="true"
+        />
+    </target>
+
+    <target name="phpcs" description="Run phpcs to check the coding standards" depends="prepare">
+        <phpcodesniffer standard="PSR2">
+            <fileset refid="allCode" />
+            <formatter type="checkstyle" outfile="${builddir}/phpcs/checkstyle.xml"/>
+            <formatter type="xml" outfile="${builddir}/phpcs/phpcs.xml"/>
+        </phpcodesniffer>
+    </target>
+
+    <target name="pdepend" description="Run jdepend" depends="prepare">
+        <exec command="./vendor/bin/pdepend --jdepend-xml=${builddir}/pdepend/pdepend.xml --summary-xml=${builddir}/pdepend/summary.xml --jdepend-chart=${builddir}/pdepend/chart.svg --overview-pyramid=${builddir}/pdepend/pyramid.svg src,tests"
+            checkreturn="true"
+        />
+    </target>
+
+    <target name="phpmd" description="Run phpmd to detect code smells" depends="prepare">
+        <exec command="./vendor/bin/phpmd src,tests xml cleancode,codesize,controversial,design,naming,unusedcode --reportfile ${builddir}/phpmd/phpmd.xml"
+        />
+    </target>
+
+    <target name="phpcpd" description="Run PHP Copy Paste Detector" depends="prepare">
+        <phpcpd>
+            <fileset refid="allCode" />
+            <formatter type="pmd" outfile="${builddir}/phpcpd/phpcpd.xml"/>
+        </phpcpd>
+    </target>
+
+    <target name="phploc" description="Run phploc to extract some metrics from the code" depends="prepare">
+        <exec command="./vendor/bin/phploc --count-tests --log-xml=build/phploc/phploc.xml src tests"
+            checkreturn="true"
+        />
+    </target>
+
+    <target name="phpdox" description="Generate documentation with phpdox" depends="prepare,phploc,phpcs,phpmd,phpunit">
+        <exec command="./vendor/bin/phpdox" />
+    </target>
+
+
+
+</project>

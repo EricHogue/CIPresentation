@@ -1,17 +1,30 @@
 <?php
 
-use Behat\Behat\Context\ClosuredContextInterface,
-    Behat\Behat\Context\TranslatedContextInterface,
-    Behat\Behat\Context\BehatContext,
-    Behat\Behat\Exception\PendingException;
-use Behat\Gherkin\Node\PyStringNode,
-    Behat\Gherkin\Node\TableNode;
+require_once './vendor/autoload.php';
+
+use Sudoku\Grid;
+use Sudoku\GridCriterion;
+use Sudoku\Solver;
+use Sudoku\Validator;
+use Sudoku\GridSplitter;
+use Sudoku\Coordinate;
+use Sudoku\Loader;
+use Behat\Behat\Context\BehatContext;
+use Behat\Behat\Context\ClosuredContextInterface;
+use Behat\Behat\Context\TranslatedContextInterface;
+use Behat\Behat\Exception\PendingException;
+use Behat\Gherkin\Node\PyStringNode;
+use Behat\Gherkin\Node\TableNode;
 
 //
 // Require 3rd-party libraries here:
 //
-require_once 'PHPUnit/Autoload.php';
-require_once 'PHPUnit/Framework/Assert/Functions.php';
+//require_once 'PHPUnit/Autoload.php';
+//require_once 'PHPUnit/Autoload.php';
+require_once './vendor/phpunit/phpunit/src/Framework/Assert/Functions.php';
+
+//require_once 'PHPUnit/Framework/Assert/Functions.php';
+//require_once 'PHPUnit/Autoload.php';
 //
 
 /**
@@ -106,7 +119,7 @@ class FeatureContext extends BehatContext {
 	 * @Then /^it should ask me for some initial values$/
 	 */
 	public function itShouldAskMeForSomeInitialValues() {
-		assertInstanceOf('EmptyGridException', $this->exception);
+		assertInstanceOf('\Sudoku\EmptyGridException', $this->exception);
 	}
 
 	/**
@@ -123,21 +136,21 @@ class FeatureContext extends BehatContext {
 	 */
 	public function itShouldReturnADuplicateValuesError()
 	{
-		assertInstanceOf('DuplicateValuesException', $this->exception);
+		assertInstanceOf('\Sudoku\DuplicateValuesException', $this->exception);
 	}
 
 	/**
 	 * @Given /^a grid with valid initial state$/
 	 */
 	public function aGridWithValidInitialState() {
-		throw new PendingException();
+		//throw new PendingException();
 	}
 
 	/**
 	 * @Then /^it should return a full valid grid$/
 	 */
 	public function itShouldReturnAFullValidGrid() {
-		throw new PendingException();
+		//throw new PendingException();
 	}
 
 
