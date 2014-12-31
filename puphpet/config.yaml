@@ -77,7 +77,13 @@ cron:
     jobs: {  }
 firewall:
     install: '1'
-    rules: null
+    rules:
+        Jenkins:
+            port:
+                - '8080'
+            priority: '100'
+            proto: tcp
+            action: accept
 apache:
     install: '0'
     settings:
