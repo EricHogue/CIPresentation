@@ -16,4 +16,15 @@ curl  -L http://updates.jenkins-ci.org/update-center.json | sed '1d;$d' | curl -
 
 wget http://localhost:8080/jnlpJars/jenkins-cli.jar
 java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin Git Phing GreenBalls ChuckNorris
+
+
+echo "Copy Jenkins configs"
+cp /vagrant/JenkinsConfigs/hudson.plugins.phing.PhingInstallation.xml /var/lib/jenkins/hudson.plugins.phing.PhingInstallation.xml
+sudo chown jenkins:jenkins /var/lib/jenkins/hudson.plugins.phing.PhingInstallation.xml
+
+mkdir /var/lib/jenkins/jobs/Sudoku/
+cp /vagrant/JenkinsConfigs/SudokuConfig.xml /var/lib/jenkins/jobs/Sudoku/config.xml
+sudo chown -R jenkins:jenkins /var/lib/jenkins/jobs/Sudoku/
+
+echo "Restart Jenkins"
 java -jar jenkins-cli.jar -s http://localhost:8080 safe-restart

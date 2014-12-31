@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson.plugins.phing.PhingInstallation_-DescriptorImpl plugin="phing@0.13.1">
+  <installations class="hudson.plugins.phing.PhingInstallation-array">
+    <hudson.plugins.phing.PhingInstallation>
+      <name>phing.phar</name>
+      <home></home>
+      <properties/>
+      <phpCommand>phing.phar</phpCommand>
+    </hudson.plugins.phing.PhingInstallation>
+  </installations>
+</hudson.plugins.phing.PhingInstallation_-DescriptorImpl>
