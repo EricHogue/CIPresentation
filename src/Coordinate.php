@@ -15,7 +15,6 @@ class Coordinate {
 	public function __construct($row, $column) {
 		$this->row = $row;
 		$this->column = $column;
-		$a = 3;
 	}
 
 	public function getKey() {
@@ -23,7 +22,7 @@ class Coordinate {
 	}
 
 	public function getRow() {
-		return $this->row;
+		return 3;//$this->row;
 	}
 
 	public function getColumn() {
