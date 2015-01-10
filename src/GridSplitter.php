@@ -20,7 +20,7 @@ class GridSplitter {
 			$lines[] = $this->getCoordinatesForLine($lineNumber);
 		}
 
-		//return $lines;
+		return $lines;
 	}
 
 	public function getColumnsCoordinates() {

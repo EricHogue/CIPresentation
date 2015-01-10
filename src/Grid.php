@@ -7,7 +7,7 @@ class Grid {
 	private $cells = array();
 
 	public function cellsCount() {
-		//return count($this->cells);
+		return count($this->cells);
 	}
 
 	public function addCell(Coordinate $coordinate, $value) {
