@@ -19,7 +19,7 @@ class Validator {
 	}
 
 	public function areAllValuesSet() {
-		return $this->grid->cellsCount() === $this->criterion->numberOfNeededValues();
+		//return $this->grid->cellsCount() === $this->criterion->numberOfNeededValues();
 	}
 
 	public function areValuesValid($values) {

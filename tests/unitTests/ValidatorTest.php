@@ -52,7 +52,8 @@ class ValidatorTest extends PHPUnit_Framework_TestCase {
 			->method('numberOfNeededValues')
 			->will($this->returnValue(5));
 
-		$this->assertTrue($this->validator->areAllValuesSet());
+        $this->assertTrue($this->validator->areAllValuesSet(),
+            'Failed to check that all the board values are set');
 	}
 
 	public function testHaveSomeInvalidValue() {
