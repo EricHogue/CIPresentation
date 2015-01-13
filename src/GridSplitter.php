@@ -46,6 +46,35 @@ class GridSplitter {
 		$linesCount = $this->criterion->getLineCount();
 		$columnsCount = $this->criterion->getColumnCount();
 
+        if ($linesCount > 1){
+            $a = 1;
+        } else {
+            $a = 2;
+
+            if ($linesCount > 2) {
+                $b = 3;
+            } else {
+                $b = 4;
+
+                if ($linesCount > 3) {
+                    $c = 3;
+                } else {
+                    $c = 4;
+
+                    if ($linesCount > 5) {
+                        $d = 5;
+                        if ($linesCount > 4) {
+                            $d = 5;
+                        } else {
+                            $d = 6;
+                        }
+                    } else {
+                        $d = 6;
+                    }
+                }
+            }
+        }
+
 		foreach (range(0, $linesCount - 1) as $lineNumber) {
 			foreach (range(0, $columnsCount - 1) as $columnNumber) {
 				$coord = new Coordinate($lineNumber, $columnNumber);
