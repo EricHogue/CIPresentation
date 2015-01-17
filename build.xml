@@ -56,7 +56,7 @@
     </target>
 
     <target name="pdepend" description="Run jdepend" depends="prepare">
-        <exec command="./vendor/bin/pdepend --jdepend-xml=${builddir}/pdepend/pdepend.xml --summary-xml=${builddir}/pdepend/summary.xml --jdepend-chart=${builddir}/pdepend/chart.svg --overview-pyramid=${builddir}/pdepend/pyramid.svg src,tests"
+        <exec command="./vendor/bin/pdepend --jdepend-xml=${builddir}/pdepend/pdepend.xml --summary-xml=${builddir}/pdepend/summary.xml --jdepend-chart=${builddir}/pdepend/chart.svg --overview-pyramid=${builddir}/pdepend/pyramid.svg src"
             checkreturn="true"
         />
     </target>
