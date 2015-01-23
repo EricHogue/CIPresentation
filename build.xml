@@ -67,7 +67,7 @@
     </target>
 
     <target name="phpcpd" description="Run PHP Copy Paste Detector" depends="prepare">
-        <phpcpd>
+        <phpcpd minTokens="35">
             <fileset refid="allCode" />
             <formatter type="pmd" outfile="${builddir}/phpcpd/phpcpd.xml"/>
         </phpcpd>
