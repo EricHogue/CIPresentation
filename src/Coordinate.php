@@ -32,18 +32,4 @@ class Coordinate {
 	public function __toString() {
 		return $this->getKey();
 	}
-
-    public function isValidGrid() {
-		if (!$this->areAllValuesSet()) return false;
-
-		$allSections = array_merge($this->splitter->getAllLinesValues(),
-			$this->splitter->getAllColumnsValues(), $this->splitter->getAllSubGridsValues());
-
-		foreach($allSections as $section) {
-			if (!$this->areValuesValid($section)) return false;
-			if ($this->haveDuplicates($section)) return false;
-		}
-
-		return true;
-	}
 }
