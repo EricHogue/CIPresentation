@@ -147,8 +147,7 @@ class GridSplitter {
 	}
 
 	private function getCoordinatesForColumn($column) {
-		$grid = $this->grid;
-		$func = function($line) use ($column, $grid) {
+		$func = function($line) use ($column) {
 			return new Coordinate($line, $column);
 		};
 

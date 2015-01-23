@@ -72,18 +72,18 @@ class GridSplitterTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals($expected, $subGrids[6]);
 	}
 
-	public function testNextEmptyCellIs0_0ForEmptyGrid() {
+	public function testNextEmptyCellIs00ForEmptyGrid() {
 		$this->assertEquals(new Coordinate(0, 0), $this->splitter->nextEmptyCell());
 	}
 
-	public function testWhen0_0IsSetNextEmptyCellIs0_1() {
+	public function testWhen00IsSetNextEmptyCellIs01() {
 		$this->grid->expects($this->any())
 			->method('isCellSet')
 			->will($this->onConsecutiveCalls(true, false));
 		$this->assertEquals(new Coordinate(0, 1), $this->splitter->nextEmptyCell());
 	}
 
-	public function testWhenFirst2RowsAreSetNextEmptyCellIs2_4() {
+	public function testWhenFirst2RowsAreSetNextEmptyCellIs24() {
 		$this->grid->expects($this->any())
 			->method('isCellSet')
 			->will($this->onConsecutiveCalls(true, true, true, true, true, true, true, true, true, true, true, true,

@@ -40,7 +40,7 @@ class FeatureContext extends BehatContext {
      *
      * @param   array   $parameters     context parameters (set them up through behat.yml)
      */
-    public function __construct(array $parameters) {
+    public function __construct() {
         // Initialize your context here
     }
 
