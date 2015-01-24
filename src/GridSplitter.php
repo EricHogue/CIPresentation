@@ -167,7 +167,7 @@ class GridSplitter {
         $coord = $this->getStartingCoordinateForSubGrid($subGridNumber);
 
         $linesToAdd = $this->criterion->getLinesBySubGrid() - 1;
-        $columnsToAdd = $this->criterion->getColumnsBySubGrid() - 1;
+        //$columnsToAdd = $this->criterion->getColumnsBySubGrid() - 1;
         $subGrid = array();
 
         foreach (range($coord->getRow(), $coord->getRow() + $linesToAdd) as $line) {
