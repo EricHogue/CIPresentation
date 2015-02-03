@@ -19,6 +19,9 @@ java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin Git Phing Gree
 
 
 echo "Copy Jenkins configs"
+cp /vagrant/JenkinsConfigs/JenkinsConfig.xml /var/lib/jenkins/config.xml
+sudo chown jenkins:jenkins /var/lib/jenkins/config.xml
+
 cp /vagrant/JenkinsConfigs/hudson.plugins.phing.PhingInstallation.xml /var/lib/jenkins/hudson.plugins.phing.PhingInstallation.xml
 sudo chown jenkins:jenkins /var/lib/jenkins/hudson.plugins.phing.PhingInstallation.xml
 
