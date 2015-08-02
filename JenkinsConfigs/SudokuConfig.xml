@@ -36,7 +36,6 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.plugins.phing.PhingBuilder plugin="phing@0.13.1">
-      <name>phing.phar</name>
       <useModuleRoot>true</useModuleRoot>
     </hudson.plugins.phing.PhingBuilder>
   </builders>

@@ -22,9 +22,6 @@ echo "Copy Jenkins configs"
 cp /vagrant/JenkinsConfigs/JenkinsConfig.xml /var/lib/jenkins/config.xml
 sudo chown jenkins:jenkins /var/lib/jenkins/config.xml
 
-cp /vagrant/JenkinsConfigs/hudson.plugins.phing.PhingInstallation.xml /var/lib/jenkins/hudson.plugins.phing.PhingInstallation.xml
-sudo chown jenkins:jenkins /var/lib/jenkins/hudson.plugins.phing.PhingInstallation.xml
-
 mkdir /var/lib/jenkins/jobs/Sudoku/
 cp /vagrant/JenkinsConfigs/SudokuConfig.xml /var/lib/jenkins/jobs/Sudoku/config.xml
 sudo chown -R jenkins:jenkins /var/lib/jenkins/jobs/Sudoku/
